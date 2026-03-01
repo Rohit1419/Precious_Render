@@ -75,8 +75,8 @@ export default function ProblemSolution({ data }: ProblemSolutionProps) {
   const solutionCtaLabel = data?.solutionCtaLabel ?? "Get Started";
   const solutionCtaHref = data?.solutionCtaHref ?? "https://wa.me/+918087881239?text=Hello%20I%20want%20to%20know%20more%20about%20your%20services";
 
-  const compareBeforeImage = data?.compareBeforeImage ?? "/before.png";
-  const compareAfterImage = data?.compareAfterImage ?? "/after.png";
+  const compareBeforeImage = data?.compareBeforeImage ?? "/images/cad-render/Banner_Clay.webp";
+  const compareAfterImage = data?.compareAfterImage ?? "/images/cad-render/Banner_Render.webp";
   const compareBeforeLabel = data?.compareBeforeLabel ?? "CAD";
   const compareAfterLabel = data?.compareAfterLabel ?? "Render";
 
