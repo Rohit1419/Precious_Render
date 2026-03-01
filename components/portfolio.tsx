@@ -34,22 +34,22 @@ interface Project {
 const DEFAULT_CATEGORIES = [
     {
       id: "still",
-      label: "Still Images",
+      label: " Classic Still",
       description: "Clean, high-quality product shots focused on clarity, detail, and perfect lighting for e-commerce.",
     },
     {
       id: "classic",
-      label: "Classic Animations",
+      label: "Creative Stills",
       description: "Elegant 360-degree rotations and simple movements to showcase the full geometry of your designs.",
     },
     {
       id: "creative",
-      label: "Creative Animations",
+      label: "Classic Animations",
       description: "Dynamic motion graphics and cinematic storytelling to elevate your brand marketing.",
     },
     {
       id: "onbody",
-      label: "On-Body Visuals",
+      label: "Creatiive Animations",
       description: "Realistic visualizations of jewelry worn on models to help customers visualize scale and style.",
     },
   ];
