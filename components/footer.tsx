@@ -2,10 +2,18 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Linkedin, Mail, Phone, MapPin, Instagram, Youtube, MessageCircle } from "lucide-react";
+import {
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  Instagram,
+  Youtube,
+  MessageCircle,
+} from "lucide-react";
 import type { SiteSettings } from "@/lib/sanity/types";
 import { useTheme } from "next-themes";
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
 interface FooterProps {
@@ -42,31 +50,29 @@ const DEFAULT_FOOTER_LINKS = [
 
 export default function Footer({ data }: FooterProps) {
   const currentYear = new Date().getFullYear();
-  const {theme} = useTheme();
+  const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-
-
-  const brightLogo = data?.logoUrl ?? "/brightLogo.png";
+  const brightLogo = data?.logoUrl ?? "/brightLogo.jpg";
   const darkLogo = data?.darkLogoUrl ?? "/darkLogo.png";
 
   const currentLogo = mounted && theme === "dark" ? darkLogo : brightLogo;
 
   const siteName = data?.siteName ?? "Precious Render";
-  const tagline = data?.tagline ?? "Specializing in photorealistic jewelry renders, CAD-to-catalog workflows, and on-demand jewelry manufacturing support for brands worldwide";
+  const tagline =
+    data?.tagline ??
+    "Specializing in photorealistic jewelry renders, CAD-to-catalog workflows, and on-demand jewelry manufacturing support for brands worldwide";
 
-
-  const footerLinkGroups =
-    data?.footerLinkGroups?.length
-      ? data.footerLinkGroups.map((group) => ({
-          title: group.title,
-          links: group.links.map((l) => ({ name: l.label, href: l.href })),
-        }))
-      : DEFAULT_FOOTER_LINKS;
+  const footerLinkGroups = data?.footerLinkGroups?.length
+    ? data.footerLinkGroups.map((group) => ({
+        title: group.title,
+        links: group.links.map((l) => ({ name: l.label, href: l.href })),
+      }))
+    : DEFAULT_FOOTER_LINKS;
 
   const instagramUrl = data?.socialLinks?.instagram ?? "https://instagram.com/";
   const linkedinUrl = data?.socialLinks?.linkedin ?? "https://linkedin.com/";
@@ -80,17 +86,15 @@ export default function Footer({ data }: FooterProps) {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center">
-              
-                <Image
-                  key={theme}
+              <Image
+                key={theme}
                 src={currentLogo}
                 alt={`${siteName} Logo`}
                 className="object-fill object-left  transition-opacity duration-300"
                 priority
                 width={120}
                 height={60}
-                />
-              
+              />
             </Link>
             <p className="mt-4 text-neutral-600 dark:text-neutral-400 max-w-md">
               {tagline}
@@ -124,7 +128,10 @@ export default function Footer({ data }: FooterProps) {
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                    <Link
+                      href={link.href}
+                      className="text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                    >
                       {link.name}
                     </Link>
                   </li>
@@ -140,16 +147,40 @@ export default function Footer({ data }: FooterProps) {
             © {currentYear} {siteName}. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <a href={instagramUrl} className="text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a
+              href={instagramUrl}
+              className="text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
               <Instagram size={20} />
             </a>
-            <a href={linkedinUrl} className="text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a
+              href={linkedinUrl}
+              className="text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
               <Linkedin size={20} />
             </a>
-            <a href={whatsappUrl} className="text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <a
+              href={whatsappUrl}
+              className="text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+            >
               <MessageCircle size={20} />
             </a>
-            <a href={youtubeUrl} className="text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <a
+              href={youtubeUrl}
+              className="text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
               <Youtube size={20} />
             </a>
           </div>
