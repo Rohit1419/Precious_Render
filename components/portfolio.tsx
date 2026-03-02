@@ -301,6 +301,74 @@ export default function Portfolio({ data }: PortfolioProps) {
         title: "Pear Sapphire 3",
       },
     ];
+    // In the generateProjects() function, add a new array for Creative Stills:
+
+    const creativeStillsImages = [
+      {
+        src: "/images/portfolio/Creative Stills/2 Cobbles 1.jpg",
+        title: "2 Cobbles 1",
+      },
+      {
+        src: "/images/portfolio/Creative Stills/2 Cobbles 2.jpg",
+        title: "2 Cobbles 2",
+      },
+      {
+        src: "/images/portfolio/Creative Stills/Claw Prong 1.jpg",
+        title: "Claw Prong 1",
+      },
+      {
+        src: "/images/portfolio/Creative Stills/Claw Prong 2.jpg",
+        title: "Claw Prong 2",
+      },
+      {
+        src: "/images/portfolio/Creative Stills/Claw Prong 3.jpg",
+        title: "Claw Prong 3",
+      },
+      {
+        src: "/images/portfolio/Creative Stills/Crimson Bracelet 1.jpg",
+        title: "Crimson Bracelet 1",
+      },
+      {
+        src: "/images/portfolio/Creative Stills/Crimson Earring 1.jpg",
+        title: "Crimson Earring 1",
+      },
+      {
+        src: "/images/portfolio/Creative Stills/Crimson Ring 1.jpg",
+        title: "Crimson Ring 1",
+      },
+      {
+        src: "/images/portfolio/Creative Stills/Forest Bloom 1.jpg",
+        title: "Forest Bloom 1",
+      },
+      {
+        src: "/images/portfolio/Creative Stills/Forest Bloom 2.jpg",
+        title: "Forest Bloom 2",
+      },
+      {
+        src: "/images/portfolio/Creative Stills/Snail Ring 1.jpg",
+        title: "Snail Ring 1",
+      },
+      {
+        src: "/images/portfolio/Creative Stills/Sudarshan 1.jpg",
+        title: "Sudarshan 1",
+      },
+      {
+        src: "/images/portfolio/Creative Stills/Sudarshan 2.jpg",
+        title: "Sudarshan 2",
+      },
+      {
+        src: "/images/portfolio/Creative Stills/Sudarshan 3.jpg",
+        title: "Sudarshan 3",
+      },
+      {
+        src: "/images/portfolio/Creative Stills/Sudarshan 4.jpg",
+        title: "Sudarshan 4",
+      },
+      {
+        src: "/images/portfolio/Creative Stills/Sudarshan 5.jpg",
+        title: "Sudarshan 5",
+      },
+    ];
 
     const onBodyData = [
       {
@@ -397,20 +465,35 @@ export default function Portfolio({ data }: PortfolioProps) {
       });
     });
 
-    // Classic Animations
-    classicThumbnails.forEach((src, i) => {
+    // // Classic Animations
+    // classicThumbnails.forEach((src, i) => {
+    //   allProjects.push({
+    //     id: idCounter++,
+    //     title: `Classic Animation ${i + 1}`,
+    //     category: "classic",
+    //     description:
+    //       "Elegant 360-degree rotation showcasing the full geometry of the design.",
+    //     image: src,
+    //     url: "#",
+    //     technologies: ["Animation", "360 Video", "Gold Material"],
+    //     type: "video",
+    //     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder
+    //     background: getBackground(src),
+    //   });
+    // });
+
+    creativeStillsImages.forEach((img) => {
       allProjects.push({
         id: idCounter++,
-        title: `Classic Animation ${i + 1}`,
+        title: img.title,
         category: "classic",
         description:
-          "Elegant 360-degree rotation showcasing the full geometry of the design.",
-        image: src,
+          "High-resolution photorealistic render showcasing intricate details and material accuracy.",
+        image: img.src,
         url: "#",
-        technologies: ["Animation", "360 Video", "Gold Material"],
-        type: "video",
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder
-        background: getBackground(src),
+        technologies: ["3D Rendering", "Ray Tracing", "High Poly"],
+        type: "image",
+        background: getBackground(img.src),
       });
     });
 
