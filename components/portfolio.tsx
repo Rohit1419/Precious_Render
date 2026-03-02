@@ -34,10 +34,12 @@ interface Project {
   background?: "bright" | "dark";
 }
 
+// Update the DEFAULT_CATEGORIES to match actual content:
+
 const DEFAULT_CATEGORIES = [
   {
     id: "still",
-    label: " Classic Still",
+    label: "Classic Still",
     description:
       "Clean, high-quality product shots focused on clarity, detail, and perfect lighting for e-commerce.",
   },
@@ -45,17 +47,17 @@ const DEFAULT_CATEGORIES = [
     id: "classic",
     label: "Creative Stills",
     description:
-      "Elegant 360-degree rotations and simple movements to showcase the full geometry of your designs.",
+      "Elegant designs showcasing intricate details and creative compositions.",
   },
   {
     id: "creative",
     label: "Classic Animations",
     description:
-      "Dynamic motion graphics and cinematic storytelling to elevate your brand marketing.",
+      "Dynamic 360-degree rotations and elegant animations showcasing the full geometry of your designs.",
   },
   {
     id: "onbody",
-    label: "Creatiive Animations",
+    label: "Creative Animations",
     description:
       "Realistic visualizations of jewelry worn on models to help customers visualize scale and style.",
   },
@@ -370,55 +372,54 @@ export default function Portfolio({ data }: PortfolioProps) {
       },
     ];
 
-    const onBodyData = [
+    const classicAnimations = [
       {
-        src: "/Still Images/Bright Background/bracelet_00012-big.jpg",
-        title: "Diamond Tennis Bracelet on Wrist",
-        type: "image" as const,
+        src: "/images/portfolio/Classic Stills/Bright Background/Princes Halo 1.jpg",
+        videoUrl: "https://www.youtube.com/embed/hLxQ0KtxeTo",
+        title: "Ballerina Ring",
       },
       {
-        src: "/Still Images/Dark Background/Braslet.jpg",
-        title: "Elegant Bracelet Showcase",
-        type: "video" as const,
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        src: "/images/portfolio/Classic Stills/Bright Background/Ring 1-1.jpg",
+        videoUrl: "https://www.youtube.com/embed/HciDeL93Jzg",
+        title: "Blue Marquise",
       },
       {
-        src: "/Still Images/Bright Background/bracelet_00013-big.jpg",
-        title: "Diamond Tennis Bracelet II",
-        type: "image" as const,
+        src: "/images/portfolio/Classic Stills/Bright Background/Ring 5-1.jpg",
+        videoUrl: "https://www.youtube.com/embed/bNmLKmZp5IY",
+        title: "HKIJS",
       },
       {
-        src: "/Still Images/Dark Background/Cartier-PARIS-NOUVELLE-VAGUE-BRACELET.jpg",
-        title: "Paris Nouvelle Vague On-Body",
-        type: "video" as const,
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        src: "/images/portfolio/Classic Stills/Bright Background/Dancing Earrings 1.jpg",
+        videoUrl: "https://www.youtube.com/embed/XaaUQWfpUeQ",
+        title: "Rainbow",
       },
       {
-        src: "/Still Images/Bright Background/bracelet_00014-big.jpg",
-        title: "Diamond Tennis Bracelet III",
-        type: "image" as const,
+        src: "/images/portfolio/Classic Stills/Bright Background/Ring 10-1.jpg",
+        videoUrl: "https://www.youtube.com/embed/RWObbH7AHhQ",
+        title: "Ring 1",
       },
       {
-        src: "/Still Images/Bright Background/01-Robert-Procop-Ring-White-2-Big.jpg",
-        title: "Ring On Hand Animation",
-        type: "video" as const,
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        src: "/images/portfolio/Classic Stills/Bright Background/Ring 12-1.jpg",
+        videoUrl: "https://www.youtube.com/embed/7o4C_n0yTHk",
+        title: "Ring 6",
+      },
+      {
+        src: "/images/portfolio/Classic Stills/Bright Background/Ring 16-1.jpg",
+        videoUrl: "https://www.youtube.com/embed/iwwi7XtCnD8",
+        title: "Ring 7",
+      },
+      {
+        src: "/images/portfolio/Classic Stills/Bright Background/Ring 3-1.jpg",
+        videoUrl: "https://www.youtube.com/embed/olCVzmlMQDk",
+        title: "Ring 8",
       },
     ];
 
-    const classicThumbnails = [
-      "/Still Images/Dark Background/01-Ring-De-Grisogono-1-big.jpg",
-      "/Still Images/Dark Background/01-Ring-De-Grisogono-2-big.jpg",
-      "/Still Images/Dark Background/01-Ring-De-Grisogono-3-big.jpg",
-      "/Still Images/Bright Background/01-Robert-Procop-Ring-White-2-Big.jpg",
-    ];
+    // const onBodyData = [
 
-    const creativeThumbnails = [
-      "/Still Images/Bright Background/Nehadani-Color_00000-big.jpg",
-      "/Still Images/Bright Background/Nehadani-Color_00001-big.jpg",
-      "/Still Images/Bright Background/Nehadani-Color_00002-big.jpg",
-      "/Still Images/Bright Background/Nehadani-Color_00003-big.jpg",
-    ];
+    // ];
+
+    // const creativeThumbnails = [];
 
     const allProjects: Project[] = [];
     let idCounter = 1;
@@ -444,26 +445,26 @@ export default function Portfolio({ data }: PortfolioProps) {
     });
 
     // On-Body Visuals - Mix of images and videos
-    onBodyData.forEach((item) => {
-      allProjects.push({
-        id: idCounter++,
-        title: item.title,
-        category: "onbody",
-        description:
-          item.type === "video"
-            ? "Cinematic on-body animation showcasing jewelry in motion on models."
-            : "Realistic visualization of jewelry worn on models to help customers visualize scale and style.",
-        image: item.src,
-        url: "#",
-        technologies:
-          item.type === "video"
-            ? ["Motion Tracking", "On-Body Compositing", "Video Production"]
-            : ["Compositing", "Model Integration", "Lighting"],
-        type: item.type,
-        videoUrl: item.type === "video" ? item.videoUrl : undefined,
-        background: getBackground(item.src),
-      });
-    });
+    // onBodyData.forEach((item) => {
+    //   allProjects.push({
+    //     id: idCounter++,
+    //     title: item.title,
+    //     category: "onbody",
+    //     description:
+    //       item.type === "video"
+    //         ? "Cinematic on-body animation showcasing jewelry in motion on models."
+    //         : "Realistic visualization of jewelry worn on models to help customers visualize scale and style.",
+    //     image: item.src,
+    //     url: "#",
+    //     technologies:
+    //       item.type === "video"
+    //         ? ["Motion Tracking", "On-Body Compositing", "Video Production"]
+    //         : ["Compositing", "Model Integration", "Lighting"],
+    //     type: item.type,
+    //     videoUrl: item.type === "video" ? item.videoUrl : undefined,
+    //     background: getBackground(item.src),
+    //   });
+    // });
 
     // // Classic Animations
     // classicThumbnails.forEach((src, i) => {
@@ -497,22 +498,39 @@ export default function Portfolio({ data }: PortfolioProps) {
       });
     });
 
-    // Creative Animations
-    creativeThumbnails.forEach((src, i) => {
+    // Classic Animations
+    classicAnimations.forEach((item, i) => {
       allProjects.push({
         id: idCounter++,
-        title: `Creative Campaign ${i + 1}`,
+        title: item.title,
         category: "creative",
         description:
-          "Dynamic motion graphics and cinematic storytelling for brand marketing.",
-        image: src,
+          "Elegant 360-degree rotation showcasing the full geometry of the design.",
+        image: item.src,
         url: "#",
-        technologies: ["Motion Graphics", "Cinematic", "VFX"],
+        technologies: ["Animation", "360 Video", "Gold Material"],
         type: "video",
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder
-        background: getBackground(src),
+        videoUrl: item.videoUrl,
+        background: getBackground(item.src),
       });
     });
+
+    // Creative Animations
+    // creativeThumbnails.forEach((src, i) => {
+    //   allProjects.push({
+    //     id: idCounter++,
+    //     title: `Creative Campaign ${i + 1}`,
+    //     category: "creative",
+    //     description:
+    //       "Dynamic motion graphics and cinematic storytelling for brand marketing.",
+    //     image: src,
+    //     url: "#",
+    //     technologies: ["Motion Graphics", "Cinematic", "VFX"],
+    //     type: "video",
+    //     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder
+    //     background: getBackground(src),
+    //   });
+    // });
 
     return allProjects;
   };
