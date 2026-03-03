@@ -7,7 +7,7 @@ import { TextAnimate } from "@/components/ui/text-animate";
 import { AuroraText } from "@/components/ui/aurora-text";
 import { WordRotate } from "@/components/ui/word-rotate";
 import type { HeroData } from "@/lib/sanity/types";
-import { toast, Toaster } from 'sonner';
+import { toast, Toaster } from "sonner";
 
 interface HeroProps {
   data?: HeroData | null;
@@ -35,71 +35,78 @@ export default function Hero({ data }: HeroProps) {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  const rawWords = data?.rotatingWords as unknown as Array<string | { word: string }> | undefined;
+  const rawWords = data?.rotatingWords as unknown as
+    | Array<string | { word: string }>
+    | undefined;
   const words = rawWords?.length
-    ? rawWords.map((w) => (typeof w === "string" ? w : w.word)).filter(Boolean) as string[]
+    ? (rawWords
+        .map((w) => (typeof w === "string" ? w : w.word))
+        .filter(Boolean) as string[])
     : DEFAULT_WORDS;
   const headlinePrefix = data?.headlinePrefix ?? "Premium Jewelry";
   const headlineSuffix = data?.headlineSuffix ?? "Rendering Services for";
   const headlineHighlight = data?.headlineHighlight ?? "Modern Jewelers";
   const staticLeadText = data?.staticLeadText ?? "We create beautiful";
-  const primaryCtaHref = data?.primaryCtaHref ?? "https://wa.me/7823846641?text=Hello%20I%20want%20to%20know%20more%20about%20your%20services";
+  const primaryCtaHref =
+    data?.primaryCtaHref ??
+    "https://wa.me/7823846641?text=Hello%20I%20want%20to%20know%20more%20about%20your%20services";
   const videoSrc = data?.backgroundVideoUrl ?? "/Precious render.mp4";
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  
-  // Email validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
-  if (!email.trim()) {
-    toast.error('Please enter your email address');
-    return;
-  }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  if (!emailRegex.test(email)) {
-    toast.error('Please enter a valid email address');
-    return;
-  }
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  try {
-    // Show loading toast
-    toast.loading('Sending...');
-
-    const response = await fetch('/api/newsletter', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email }),
-    });
-
-    // Dismiss loading
-    toast.dismiss();
-
-    if (response.ok) {
-      // Clear input
-      setEmail("");
-      
-      // Show success toast
-      toast.success('Magic sent! ✨', {
-        description: "We'll be in touch with something special soon.",
-        duration: 3000,
-      });
-    } else {
-      const result = await response.json();
-      toast.error('Oops!', {
-        description: result.error || 'Something went wrong. Please try again.',
-      });
+    if (!email.trim()) {
+      toast.error("Please enter your email address");
+      return;
     }
-  } catch (error) {
-    toast.dismiss();
-    toast.error('Connection error', {
-      description: 'Please check your internet and try again.',
-    });
-    console.error('Error capturing lead:', error);
-  }
-};
+
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
+    try {
+      // Show loading toast
+      toast.loading("Sending...");
+
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      // Dismiss loading
+      toast.dismiss();
+
+      if (response.ok) {
+        // Clear input
+        setEmail("");
+
+        // Show success toast
+        toast.success("Magic sent! ✨", {
+          description: "We'll be in touch with something special soon.",
+          duration: 3000,
+        });
+      } else {
+        const result = await response.json();
+        toast.error("Oops!", {
+          description:
+            result.error || "Something went wrong. Please try again.",
+        });
+      }
+    } catch (error) {
+      toast.dismiss();
+      toast.error("Connection error", {
+        description: "Please check your internet and try again.",
+      });
+      console.error("Error capturing lead:", error);
+    }
+  };
 
   return (
     <div
@@ -181,18 +188,16 @@ const handleSubmit = async (e: React.FormEvent) => {
 
               {/* Input */}
               <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email here and we'll send you some 'magic'..."
-                  required
-                  pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
-                  title="Please enter a valid email address"
-                  className="flex-1 bg-transparent pl-10 md:pl-16 pr-2 md:pr-4 py-4 md:py-5 text-sm md:text-base text-neutral-900 dark:text-white placeholder:text-neutral-500 dark:placeholder:text-neutral-400 focus:outline-none md:placeholder:inline placeholder:hidden"
-                />
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email here and we'll send you some 'magic'..."
+                required
+                pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                title="Please enter a valid email address"
+                className="flex-1 bg-transparent pl-10 md:pl-16 pr-2 md:pr-4 py-4 md:py-5 text-sm md:text-base text-neutral-900 dark:text-white placeholder:text-neutral-500 dark:placeholder:text-neutral-400 focus:outline-none md:placeholder:inline placeholder:hidden"
+              />
 
-              
-              
               {/* Submit Button */}
               <motion.button
                 type="submit"
@@ -217,24 +222,25 @@ const handleSubmit = async (e: React.FormEvent) => {
           </motion.form>
         </div>
       </motion.div>
-        <Toaster 
-          position="bottom-center"
-          toastOptions={{
-            style: {
-              background: '#ffffff',
-              color: '#1a1a1a',
-              border: '1px solid #e5e7eb',
-            },
-            classNames: {
-              toast: 'dark:!bg-neutral-900 dark:!text-white dark:!border-neutral-700',
-              title: 'dark:!text-white',
-              description: 'dark:!text-neutral-400',
-              actionButton: 'dark:!bg-emerald-500',
-              cancelButton: 'dark:!bg-neutral-800',
-            },
-          }}
-          richColors
-        />
+      <Toaster
+        position="bottom-center"
+        toastOptions={{
+          style: {
+            background: "#ffffff",
+            color: "#1a1a1a",
+            border: "1px solid #e5e7eb",
+          },
+          classNames: {
+            toast:
+              "dark:!bg-neutral-900 dark:!text-white dark:!border-neutral-700",
+            title: "dark:!text-white",
+            description: "dark:!text-neutral-400",
+            actionButton: "dark:!bg-emerald-500",
+            cancelButton: "dark:!bg-neutral-800",
+          },
+        }}
+        richColors
+      />
     </div>
   );
 }
