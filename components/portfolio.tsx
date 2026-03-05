@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X, Play } from "lucide-react";
 import { CompareSlider } from "@/components/ui/compare-slider";
+
 import type {
   PortfolioConfig,
   PortfolioProject as CmsPortfolioProject,
@@ -34,7 +35,8 @@ interface Project {
   background?: "bright" | "dark";
 }
 
-// Update the DEFAULT_CATEGORIES to match actual content:
+const MotionDiv = motion.div;
+const MotionButton = motion.button;
 
 const DEFAULT_CATEGORIES = [
   {
@@ -346,58 +348,71 @@ export default function Portfolio({ data }: PortfolioProps) {
 
     const classicAnimations = [
       {
-        videoUrl: "https://www.youtube.com/embed/RWObbH7AHhQ",
+        videoUrl:
+          "https://www.youtube.com/embed/RWObbH7AHhQ?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
         title: "Ring 1",
       },
       {
-        videoUrl: "https://www.youtube.com/embed/XaaUQWfpUeQ",
+        videoUrl:
+          "https://www.youtube.com/embed/XaaUQWfpUeQ?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
         title: "Ring 6",
       },
       {
-        videoUrl: "https://www.youtube.com/embed/bNmLKmZp5IY",
+        videoUrl:
+          "https://www.youtube.com/embed/bNmLKmZp5IY?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
         title: "Ring 7",
       },
       {
-        videoUrl: "https://www.youtube.com/embed/HciDeL93Jzg",
+        videoUrl:
+          "https://www.youtube.com/embed/HciDeL93Jzg?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
         title: "Ring 8",
       },
       {
-        videoUrl: "https://www.youtube.com/embed/hLxQ0KtxeTo",
+        videoUrl:
+          "https://www.youtube.com/embed/hLxQ0KtxeTo?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
         title: "Ring 13",
       },
     ];
 
     const creativeAnimations = [
       {
-        videoUrl: "https://www.youtube.com/embed/mxWf8B97p7A",
+        videoUrl:
+          "https://www.youtube.com/embed/mxWf8B97p7A?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
         title: "Creative Animation 1",
       },
       {
-        videoUrl: "https://www.youtube.com/embed/VSidAw7qfGQ",
+        videoUrl:
+          "https://www.youtube.com/embed/VSidAw7qfGQ?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
         title: "Creative Animation 2",
       },
       {
-        videoUrl: "https://www.youtube.com/embed/OYV_saKw4FA",
+        videoUrl:
+          "https://www.youtube.com/embed/OYV_saKw4FA?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
         title: "Creative Animation 3",
       },
       {
-        videoUrl: "https://www.youtube.com/embed/p9sYbhY-wwI",
+        videoUrl:
+          "https://www.youtube.com/embed/p9sYbhY-wwI?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
         title: "Creative Animation 4",
       },
       {
-        videoUrl: "https://www.youtube.com/embed/JqhW7wDMXCs",
+        videoUrl:
+          "https://www.youtube.com/embed/JqhW7wDMXCs?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
         title: "Creative Animation 5",
       },
       {
-        videoUrl: "https://www.youtube.com/embed/gqMPhHXLDo0",
+        videoUrl:
+          "https://www.youtube.com/embed/gqMPhHXLDo0?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
         title: "Creative Animation 6",
       },
       {
-        videoUrl: "https://www.youtube.com/embed/-OXH6Wkd1V4",
+        videoUrl:
+          "https://www.youtube.com/embed/-OXH6Wkd1V4?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
         title: "Creative Animation 7",
       },
       {
-        videoUrl: "https://www.youtube.com/embed/rM8OEbFJjbY",
+        videoUrl:
+          "https://www.youtube.com/embed/rM8OEbFJjbY?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
         title: "Creative Animation 8",
       },
     ];
@@ -442,13 +457,14 @@ export default function Portfolio({ data }: PortfolioProps) {
 
     // Classic Animations
     classicAnimations.forEach((item) => {
+      const videoId = item.videoUrl.split("/embed/")[1].split("?")[0]; // Extract only the video ID
       allProjects.push({
         id: idCounter++,
         title: item.title,
         category: "classic-animation",
         description:
           "Elegant 360-degree rotation showcasing the full geometry of the design.",
-        image: `https://img.youtube.com/vi/${item.videoUrl.split("/").pop()}/hqdefault.jpg`,
+        image: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
         url: "#",
         technologies: ["Animation", "360 Video", "Gold Material"],
         type: "video",
@@ -459,13 +475,14 @@ export default function Portfolio({ data }: PortfolioProps) {
 
     // Creative Animations
     creativeAnimations.forEach((item) => {
+      const videoId = item.videoUrl.split("/embed/")[1].split("?")[0]; // Extract only the video ID
       allProjects.push({
         id: idCounter++,
         title: item.title,
         category: "creative-animation",
         description:
           "Dynamic motion graphics and cinematic storytelling for brand marketing.",
-        image: `https://img.youtube.com/vi/${item.videoUrl.split("/").pop()}/hqdefault.jpg`,
+        image: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
         url: "#",
         technologies: ["Motion Graphics", "Cinematic", "VFX"],
         type: "video",
@@ -548,7 +565,7 @@ export default function Portfolio({ data }: PortfolioProps) {
     >
       <div className="container mx-auto px-4 max-w-[1400px]">
         {/* Header */}
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -561,12 +578,12 @@ export default function Portfolio({ data }: PortfolioProps) {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-neutral-900 dark:text-white">
             {data?.config?.sectionTitle ?? "Featured Projects"}
           </h2>
-        </motion.div>
+        </MotionDiv>
 
         {/* Tabs */}
         <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
           {categories.map((cat) => (
-            <button
+            <MotionButton
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
               className={`px-4 py-2 md:px-6 md:py-3 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
@@ -576,12 +593,12 @@ export default function Portfolio({ data }: PortfolioProps) {
               }`}
             >
               {cat.label}
-            </button>
+            </MotionButton>
           ))}
         </div>
 
         {/* Category Description */}
-        <motion.div
+        <MotionDiv
           key={activeCategory}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -591,11 +608,11 @@ export default function Portfolio({ data }: PortfolioProps) {
           <p className="text-lg text-neutral-600 dark:text-neutral-400">
             {activeCategoryData?.description}
           </p>
-        </motion.div>
+        </MotionDiv>
 
         {/* Content */}
         <AnimatePresence mode="wait">
-          <motion.div
+          <MotionDiv
             key={activeCategory}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -627,14 +644,14 @@ export default function Portfolio({ data }: PortfolioProps) {
             ) : (
               renderGrid(filteredProjects)
             )}
-          </motion.div>
+          </MotionDiv>
         </AnimatePresence>
       </div>
 
       {/* Lightbox Modal */}
       <AnimatePresence>
         {selectedProject && (
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -671,7 +688,7 @@ export default function Portfolio({ data }: PortfolioProps) {
               <ChevronRight size={40} />
             </button>
 
-            <motion.div
+            <MotionDiv
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -679,7 +696,14 @@ export default function Portfolio({ data }: PortfolioProps) {
               className="relative w-full max-w-6xl max-h-[90vh] flex items-center justify-center"
             >
               {selectedProject.type === "video" && selectedProject.videoUrl ? (
-                <div className="w-full aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
+                <div
+                  className="w-full bg-black rounded-lg overflow-hidden shadow-2xl flex items-center justify-center"
+                  style={{
+                    aspectRatio: "9/16",
+                    maxHeight: "90vh",
+                    maxWidth: "50vh",
+                  }}
+                >
                   <iframe
                     width="100%"
                     height="100%"
@@ -710,8 +734,8 @@ export default function Portfolio({ data }: PortfolioProps) {
                   />
                 </div>
               )}
-            </motion.div>
-          </motion.div>
+            </MotionDiv>
+          </MotionDiv>
         )}
       </AnimatePresence>
     </section>
@@ -726,7 +750,7 @@ function ProjectCard({
   onClick: () => void;
 }) {
   return (
-    <motion.div
+    <MotionDiv
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       className="group cursor-pointer relative aspect-square overflow-hidden bg-neutral-100 dark:bg-neutral-800"
@@ -748,6 +772,6 @@ function ProjectCard({
           </div>
         </div>
       )}
-    </motion.div>
+    </MotionDiv>
   );
 }
