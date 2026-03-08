@@ -354,6 +354,26 @@ export default function Portfolio({ data }: PortfolioProps) {
       },
       {
         videoUrl:
+          "https://www.youtube.com/embed/EbnJyHkU-p4?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
+        title: "Ring 2",
+      },
+      {
+        videoUrl:
+          "https://www.youtube.com/embed/GeTbo6Sl6KY?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
+        title: "Ring 3",
+      },
+      {
+        videoUrl:
+          "https://www.youtube.com/embed/oFTxqqwZCkc?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
+        title: "Ring 4",
+      },
+      {
+        videoUrl:
+          "https://www.youtube.com/embed/FYK8A0zFYhM?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
+        title: "Ring 5",
+      },
+      {
+        videoUrl:
           "https://www.youtube.com/embed/XaaUQWfpUeQ?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
         title: "Ring 6",
       },
@@ -369,8 +389,38 @@ export default function Portfolio({ data }: PortfolioProps) {
       },
       {
         videoUrl:
+          "https://www.youtube.com/embed/8xh7STI4fIg?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
+        title: "Ring 9",
+      },
+      {
+        videoUrl:
+          "https://www.youtube.com/embed/kkBQQtQflfM?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
+        title: "Ring 10",
+      },
+      {
+        videoUrl:
+          "https://www.youtube.com/embed/0lDcwd05uGY?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
+        title: "Ring 11",
+      },
+      {
+        videoUrl:
+          "https://www.youtube.com/embed/oDQCW4cyIwM?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
+        title: "Ring 12",
+      },
+      {
+        videoUrl:
           "https://www.youtube.com/embed/hLxQ0KtxeTo?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
         title: "Ring 13",
+      },
+      {
+        videoUrl:
+          "https://www.youtube.com/embed/dTS03kdpJjQ?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
+        title: "Ring 14",
+      },
+      {
+        videoUrl:
+          "https://www.youtube.com/embed/qZBbseekzIM?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&vq=hd720",
+        title: "Ring 15",
       },
     ];
 
